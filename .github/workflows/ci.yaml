@@ -46,3 +46,10 @@ jobs:
       - name: Test
         run: yarn run test
 
+      - name: Publish
+        run: |
+          run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          yarn run  release.dryRun
+        env:
+          GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}

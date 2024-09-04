@@ -134,6 +134,9 @@
     ]
   },
   "release": {
+    "branches": [
+      "feat/build-and-deploy"
+    ],
     "extends": "@stoplight/scripts/release"
   },
   "volta": {
