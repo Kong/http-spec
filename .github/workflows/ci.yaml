@@ -22,7 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      GH_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
+      GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}
 
     steps:
 
@@ -52,13 +53,7 @@ jobs:
           git config --global user.name 'kongponents-bot'
           git config --global user.email '95302551+kongponents-bot@users.noreply.github.com'
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-        env:
-          GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}
 
       - name: Semantic Release
         if: ${{ github.event_name == 'push' }}
         uses: cycjimmy/semantic-release-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}
