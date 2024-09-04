@@ -49,8 +49,10 @@ jobs:
       - name: Publish
         if: ${{ github.event_name == 'push' }}
         run: |
+          git config --global user.name 'kongponents-bot'
+          git config --global user.email '95302551+kongponents-bot@users.noreply.github.com'
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          yarn run  release
+          yarn run release
         env:
           GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}
