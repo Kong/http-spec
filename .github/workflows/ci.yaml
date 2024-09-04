@@ -48,7 +48,7 @@ jobs:
 
       - name: Publish
         run: |
-          run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
           yarn run  release.dryRun
         env:
           GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
