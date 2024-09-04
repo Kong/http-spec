@@ -47,9 +47,10 @@ jobs:
         run: yarn run test
 
       - name: Publish
+        if: ${{ github.event_name == 'push' }}
         run: |
           echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-          yarn run  release.dryRun
+          yarn run  release
         env:
           GITHUB_TOKEN: ${{ secrets.KONGPONENTS_BOT_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLIC_PUBLISH }}
