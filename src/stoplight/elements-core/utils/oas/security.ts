@@ -7,7 +7,7 @@ import type {
   IOauth2ImplicitFlow,
   IOauth2PasswordFlow,
 } from '@stoplight/types';
-import { capitalize, filter, flatten, isObject } from 'lodash-es';
+import { capitalize, filter, flatten, isObject } from 'lodash';
 
 import { hash } from '../../../../hash';
 
