@@ -1,7 +1,7 @@
 // @ts-nocheck external file
 import type { IHttpOperation, IHttpService, IHttpWebhookOperation, INode } from '@stoplight/types';
 import type { JSONSchema7 } from 'json-schema';
-import { isObject, isPlainObject } from 'lodash-es';
+import { isObject, isPlainObject } from 'lodash';
 /*
 interface IMarkdownViewerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onError'> {
   markdown: string;
